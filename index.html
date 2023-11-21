@@ -32,6 +32,58 @@
             margin: 1em;
             border-radius: 10px;
         }
+
+        .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+}
+
+.modal-content img {
+  max-width: 100%; /* Adjust as needed */
+  max-height: 100%; /* Adjust as needed */
+  display: block;
+  margin: auto;
+}
+
     </style>
 </head>
 
@@ -41,16 +93,42 @@
     </header>
 
     <section>
-        <div class="menu-item">
+        <div id="myModal1" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeModal(1)">&times;</span>
+              <img src="Red and Black Edgy Grungy Halloween Poster.jpg" alt="Pic 1">
+            </div>
+          </div>
+          
+          <div id="myModal2" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeModal(2)">&times;</span>
+              <img src="Red White Gray Graffiti Halloween Party Poster.jpg" alt="Pic 2">
+            </div>
+          </div>
+          
+          <div class="menu-item" id="Brown" onclick="showPic(1)">
             <h2>Brownies</h2>
             <p>Classic chocolate brownies that melt in your mouth.</p>
-        </div>
-
-        <div class="menu-item">
+          </div>
+          
+          <div class="menu-item" id="Ice" onclick="showPic(2)">
             <h2>Ice Cream</h2>
             <p>Rich and creamy ice cream.</p>
-        </div>
+          </div>          
+          
     </section>
-</body>
+<script>
+    function showPic(picNumber) {
+  var modal = document.getElementById('myModal' + picNumber);
+  modal.style.display = 'block';
+}
 
+function closeModal(picNumber) {
+  var modal = document.getElementById('myModal' + picNumber);
+  modal.style.display = 'none';
+}
+
+</script>
+</body>
 </html>
